@@ -1,0 +1,64 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikto Scan</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2>Nikto Scan Interface</h2>
+    <form method="post" action="/">
+        <label for="url">Enter URL (required):</label>
+        <input type="text" id="url" name="url" required><br>
+        <small>Example: www.example.com or IP address</small><br><br>
+        
+        <label for="port">Port (optional):</label>
+        <input type="text" id="port" name="port"><br>
+        <small>Specify the port number, default is 80 for HTTP or 443 for HTTPS if SSL is checked.</small><br><br>
+        
+        <label><input type="checkbox" id="use_ssl" name="use_ssl"> Use SSL (optional)</label><br>
+        <small>Check this if you want to use SSL for the connection (HTTPS).</small><br><br>
+        
+        <label for="timeout">Timeout in seconds (optional):</label>
+        <input type="text" id="timeout" name="timeout"><br>
+        <small>Specify the timeout for each request. Default is 10 seconds.</small><br><br>
+        
+        <label for="tuning">Tuning Options (optional):</label>
+        <input type="text" id="tuning" name="tuning"><br>
+        <small>Comma-separated list of IDs to fine-tune the test types to run, e.g., x,0,1. See Nikto documentation for details.</small><br><br>
+        
+        <input type="submit" value="Scan">
+    </form>
+</body>
+<!-- <body>
+    <h1>Nikto Scan</h1>
+    <form id="scanForm">
+        <label for="targetUrl">Target URL:</label>
+        <input type="text" id="targetUrl" name="targetUrl">
+        <button type="button" id="scanButton">Scan</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        $(document).ready(function() {
+            $("#scanButton").click(function() {
+                var targetUrl = $("#targetUrl").val();
+                $.ajax({
+                    url: "/scan",
+                    type: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify({ "targetUrl": targetUrl }),
+                    success: function(response) {
+                        $("#result").html(response);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script>
+</body> -->
+</html>

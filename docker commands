@@ -1,0 +1,2 @@
+docker build --tag nikto .
+docker run -d --rm -p 5000:5000 --name nikto-docker-001 nikto
